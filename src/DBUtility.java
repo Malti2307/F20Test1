@@ -175,7 +175,7 @@ public class DBUtility {
             statement3 = conn3.createStatement();
 
 
-            resultSet3 = statement3.executeQuery("SELECT * FROM raceResults where gender ='Male'");
+            resultSet3 = statement3.executeQuery("SELECt * FROM raceResults where gender = 'Female'order by run1+run2 Desc limit 10;");
 
 
             while (resultSet3.next()) {
@@ -196,13 +196,13 @@ public class DBUtility {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if (conn1 != null)
-                conn1.close();
-            if (statement1 != null)
-                statement1.close();
-            if (resultSet1 != null)
-                resultSet1.close();
-            return males;
+            if (conn3 != null)
+                conn3.close();
+            if (statement3 != null)
+                statement3.close();
+            if (resultSet3 != null)
+                resultSet3.close();
+            return femalestop10;
         }
 
     }
