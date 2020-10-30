@@ -8,7 +8,6 @@ public class DBUtility
     private static String password = "student";
 
 
-
     public static ArrayList<Athelete> getAtheletes() throws SQLException {
         ArrayList<Athelete> Atheletes = new ArrayList<>();
 
@@ -25,7 +24,7 @@ public class DBUtility
             statement = conn.createStatement();
 
 
-            resultSet = statement.executeQuery("SELECT * FROM chocolate_data");
+            resultSet = statement.executeQuery("SELECT * FROM raceResults");
 
 
             while(resultSet.next())
@@ -37,9 +36,10 @@ public class DBUtility
                         resultSet.getString("gender"),
                         resultSet.getString("club"),
                         resultSet.getInt("yearOfBirth"),
-                        resultSet.getDouble("run1")
+                        resultSet.getFloat("run1"),
+                        resultSet.getFloat("run2")
                 );
-                Atheletes.add(Athelete);
+                Atheletes.add(newAthelete);
             }
 
 

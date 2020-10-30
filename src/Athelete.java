@@ -7,16 +7,27 @@ private String gender, club;
 private int yearOfBirth;
 private float run1, run2;
 
-
-
-    public Athelete(int bib, String fullName,  String gender, String club, int yearOfBirth, float run1, float run2) {
+    public Athelete(int id, int bib, String fullName, String gender, String club, int yearOfBirth, float run1, float run2) {
+        setId(id);
         setBib(bib);
-        setFirstName(fullName);
+        setFullName(fullName);
+        setGender(gender);
+        setClub(club);
+        setYearOfBirth(yearOfBirth);
+        setRun1(run1);
+        setRun2(run2);
+    }
+
+    public Athelete(int bib, String fullName, String gender, String club, int yearOfBirth, float run1, float run2) {
+        setBib(bib);
+        setFullName(fullName);
         setGender(gender);
         setClub(club);
         setYearOfBirth(yearOfBirth);
         setRun1(run1);
         setRun2(run2); }
+
+
 
     public int getId() {
         return id;
@@ -41,8 +52,8 @@ private float run1, run2;
         return fullName;
     }
 
-    public void setFirstName(String firstName) {
-        if (firstName.matches("[A-Z][a-zA-Z]*[-]?[A-z]*?"))
+    public void setFullName(String firstName) {
+        if (fullName.matches("[A-Z][a-zA-Z]*[-]?[A-z]*?"))
             this.fullName = firstName;
         else
             throw new IllegalArgumentException("First name must start with a capital and have more than 1 letter");

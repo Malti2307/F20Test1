@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="AtheleteViewController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AtheleteViewController">
+   <children>
+      <VBox layoutX="14.0" layoutY="51.0" prefHeight="315.0" prefWidth="454.0" spacing="20.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="358.0" text="All Racers">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <TableView prefHeight="209.0" prefWidth="395.0">
+              <columns>
+                <TableColumn fx:id="idColumn" prefWidth="26.000003814697266" text="Id" />
+                <TableColumn fx:id="bibColumn" prefWidth="38.66667938232422" text="Bib" />
+                  <TableColumn fx:id="nameColumn" prefWidth="83.33330535888672" text="Name" />
+                  <TableColumn fx:id="genderColumn" prefWidth="64.66668701171875" text="Gender" />
+                  <TableColumn fx:id="clubColumn" prefWidth="79.33335876464844" text="Club" />
+                  <TableColumn fx:id="yearColumn" prefWidth="57.33331298828125" text="YOB" />
+                  <TableColumn fx:id="run1Column" prefWidth="52.0" text="Run1" />
+                  <TableColumn fx:id="run2Column" prefWidth="52.66668701171875" text="Run2" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>
