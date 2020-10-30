@@ -41,6 +41,9 @@ public class AtheleteViewController implements Initializable {
     @FXML
     private Label rowsReturnedLabel;
 
+    @FXML
+    private Label headingLabel;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         idColumn.setCellValueFactory(new PropertyValueFactory<Athelete, Integer>("id"));
@@ -52,7 +55,6 @@ public class AtheleteViewController implements Initializable {
         run1Column.setCellValueFactory(new PropertyValueFactory<Athelete, Float>("run1"));
         run2Column.setCellValueFactory(new PropertyValueFactory<Athelete, Float>("run2"));
 
-
         try {
 
             tableView.getItems().addAll(DBUtility.getAtheletes());
@@ -60,6 +62,41 @@ public class AtheleteViewController implements Initializable {
                 SQLException e) {
             e.printStackTrace();
         }
-        rowsReturnedLabel.setText();
+
+
+    }
+
+    public void allRacersButton(){
+        headingLabel.setText("All Racers");
+        try {
+
+            tableView.getItems().addAll(DBUtility.getAtheletes());
+        } catch (
+                SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public void allFemalesButton() {
+        headingLabel.setText("All Females");
+
+        try {
+
+            tableView.getItems().addAll(DBUtility.getFemales());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+        public void allMalesButton(){
+            headingLabel.setText("All Males");
+
+            try {
+
+                tableView.getItems().addAll(DBUtility.getFemales());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
     }
 }
