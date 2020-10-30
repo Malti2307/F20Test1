@@ -2,17 +2,16 @@ public class Athelete
 {
 private int id;
 private int bib;
-private String firstName, lastName;
+private String fullName;
 private String gender, club;
 private int yearOfBirth;
 private float run1, run2;
 
 
 
-    public Athelete(int bib, String firstName, String lastName, String gender, String club, int yearOfBirth, float run1, float run2) {
+    public Athelete(int bib, String fullName,  String gender, String club, int yearOfBirth, float run1, float run2) {
         setBib(bib);
-        setFirstName(firstName);
-        setLastName(lastName);
+        setFirstName(fullName);
         setGender(gender);
         setClub(club);
         setYearOfBirth(yearOfBirth);
@@ -38,28 +37,28 @@ private float run1, run2;
         this.bib = bib;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFullName() {
+        return fullName;
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        if (firstName.matches("[A-Z][a-zA-Z]*[-]?[A-z]*?"))
+            this.fullName = firstName;
+        else
+            throw new IllegalArgumentException("First name must start with a capital and have more than 1 letter");
     }
 
-    public String getLastName() {
-        return lastName;
-    }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public String getGender() {
         return gender;
     }
 
     public void setGender(String gender) {
+        if(gender.equals("male")|| gender.equals("female"))
         this.gender = gender;
+        else
+            throw new IllegalArgumentException(" Gender can be male or female");
     }
 
     public String getClub() {
@@ -67,7 +66,9 @@ private float run1, run2;
     }
 
     public void setClub(String club) {
+        if(!club.isBlank())
         this.club = club;
+
     }
 
     public int getYearOfBirth() {
@@ -86,7 +87,9 @@ private float run1, run2;
     }
 
     public void setRun1(float run1) {
+        if(run1>=40)
         this.run1 = run1;
+        else throw new  IllegalArgumentException("Run duration should be equal to or greater than 40");
     }
 
     public float getRun2() {
@@ -94,8 +97,23 @@ private float run1, run2;
     }
 
     public void setRun2(float run2) {
-        this.run2 = run2;
+        if(run2>=40)
+            this.run2 = run2;
+        else throw new  IllegalArgumentException("Run duration should be equal to or greater than 40");
     }
+
+    public float getFastestRun(){
+        if(run1>run2)
+            return run1;
+
+        else return run2;
+    }
+    public double getCombinedTime(){
+        return run1+run2;
+}
+        public String getCombinedTimeString(){
+        return(String.format("%.2f",run1+run2));
+        }
 
 
 }
