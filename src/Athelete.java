@@ -52,11 +52,11 @@ private float run1, run2;
         return fullName;
     }
 
-    public void setFullName(String firstName) {
-        if (fullName.matches("[A-Z][a-zA-Z]*[-]?[A-z]*?"))
-            this.fullName = firstName;
+    public void setFullName(String fullName) {
+        if (!fullName.isBlank())
+            this.fullName = fullName;
         else
-            throw new IllegalArgumentException("First name must start with a capital and have more than 1 letter");
+            throw new IllegalArgumentException("Full name must start with a capital and have more than 1 letter");
     }
 
 
@@ -66,10 +66,10 @@ private float run1, run2;
     }
 
     public void setGender(String gender) {
-        if(gender.equals("male")|| gender.equals("female"))
+        if(gender.equals("Male") || gender.equals("Female"))
         this.gender = gender;
         else
-            throw new IllegalArgumentException(" Gender can be male or female");
+            throw new IllegalArgumentException("Gender can be male or female");
     }
 
     public String getClub() {

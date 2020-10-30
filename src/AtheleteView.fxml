@@ -17,7 +17,7 @@
                   <Font size="36.0" />
                </font>
             </Label>
-            <TableView prefHeight="209.0" prefWidth="395.0">
+            <TableView fx:id="tableView" prefHeight="209.0" prefWidth="395.0">
               <columns>
                 <TableColumn fx:id="idColumn" prefWidth="26.000003814697266" text="Id" />
                 <TableColumn fx:id="bibColumn" prefWidth="38.66667938232422" text="Bib" />
@@ -29,6 +29,7 @@
                   <TableColumn fx:id="run2Column" prefWidth="52.66668701171875" text="Run2" />
               </columns>
             </TableView>
+            <Label fx:id="rowsReturnedLabel" prefHeight="17.0" prefWidth="276.0" text="Rows Returned:" />
          </children>
       </VBox>
    </children>

@@ -1,9 +1,12 @@
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AtheleteViewController implements Initializable {
@@ -35,8 +38,28 @@ public class AtheleteViewController implements Initializable {
     @FXML
     private TableColumn<Athelete, Float> run2Column;
 
+    @FXML
+    private Label rowsReturnedLabel;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        idColumn.setCellValueFactory(new PropertyValueFactory<Athelete, Integer>("id"));
+        bibColumn.setCellValueFactory(new PropertyValueFactory<Athelete, Integer>("bib"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Athelete, String >("fullName"));
+        genderColumn.setCellValueFactory(new PropertyValueFactory<Athelete,String>("gender"));
+        clubColumn.setCellValueFactory(new PropertyValueFactory<Athelete, String>("club"));
+        yearColumn.setCellValueFactory(new PropertyValueFactory<Athelete, Integer>("yearOfBirth"));
+        run1Column.setCellValueFactory(new PropertyValueFactory<Athelete, Float>("run1"));
+        run2Column.setCellValueFactory(new PropertyValueFactory<Athelete, Float>("run2"));
 
+
+        try {
+
+            tableView.getItems().addAll(DBUtility.getAtheletes());
+        } catch (
+                SQLException e) {
+            e.printStackTrace();
+        }
+        rowsReturnedLabel.setText();
     }
 }
