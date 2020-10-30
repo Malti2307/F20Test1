@@ -117,4 +117,16 @@ public class AtheleteViewController implements Initializable {
         }
 
     }
+
+    public void top10males() {
+        headingLabel.setText("Top 10 males");
+
+        try {
+
+            tableView.getItems().addAll(DBUtility.getMalestop10());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

@@ -80,7 +80,7 @@ public class DBUtility {
 
 
             while (resultSet1.next()) {
-                Athelete newAthelete = new Athelete(
+                Athelete female = new Athelete(
                         resultSet1.getInt("id"),
                         resultSet1.getInt("bib"),
                         resultSet1.getString("fullName"),
@@ -90,7 +90,7 @@ public class DBUtility {
                         resultSet1.getFloat("run1"),
                         resultSet1.getFloat("run2")
                 );
-                females.add(newAthelete);
+                females.add(female);
             }
 
 
@@ -203,6 +203,55 @@ public class DBUtility {
             if (resultSet3 != null)
                 resultSet3.close();
             return femalestop10;
+        }
+
+    }
+
+   public  static ArrayList<Athelete> getMalestop10() throws SQLException {
+        ArrayList<Athelete> malestop10 = new ArrayList<>();
+
+
+        //1.define connection, preparedstatement
+        Connection conn4 = null;
+        Statement statement4 = null;
+        ResultSet resultSet4 = null;
+
+        try {
+
+            conn4 = DriverManager.getConnection("jdbc:mysql://localhost:3306/F20COMP1011Test1",
+                    user, password);
+
+            statement4 = conn4.createStatement();
+
+
+            resultSet4 = statement4.executeQuery("SELECt * FROM raceResults where gender = 'Male'order by run1+run2 Desc limit 10;");
+
+
+            while (resultSet4.next()) {
+                Athelete newAthelete = new Athelete(
+                        resultSet4.getInt("id"),
+                        resultSet4.getInt("bib"),
+                        resultSet4.getString("fullName"),
+                        resultSet4.getString("gender"),
+                        resultSet4.getString("club"),
+                        resultSet4.getInt("yearOfBirth"),
+                        resultSet4.getFloat("run1"),
+                        resultSet4.getFloat("run2")
+                );
+                malestop10.add(newAthelete);
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (conn4 != null)
+                conn4.close();
+            if (statement4 != null)
+                statement4.close();
+            if (resultSet4 != null)
+                resultSet4.close();
+            return malestop10;
         }
 
     }

@@ -38,7 +38,7 @@
             <Button fx:id="femalesOnlyButton" mnemonicParsing="false" onAction="#allFemalesButton" text="FemaleOnly" />
             <Button fx:id="maleOnlyButton" mnemonicParsing="false" onAction="#allMalesButton" text="MaleOnly" />
             <Button fx:id="topfemaleButton" mnemonicParsing="false" onAction="#top10females" text="Top 10 Females" />
-            <Button fx:id="topMaleButton" mnemonicParsing="false" text="Top 10 Males" />
+            <Button fx:id="topMaleButton" mnemonicParsing="false" onAction="#top10males" text="Top 10 Males" />
             <Button fx:id="bestFemaleButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Female Best Run" />
             <Button fx:id="bestMaleButton" mnemonicParsing="false" text="Male Best Run" />
          </children>
