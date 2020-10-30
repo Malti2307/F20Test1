@@ -1,3 +1,8 @@
+/*
+Name - Malti
+St Num -200434065
+ */
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -48,8 +53,8 @@ public class AtheleteViewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         idColumn.setCellValueFactory(new PropertyValueFactory<Athelete, Integer>("id"));
         bibColumn.setCellValueFactory(new PropertyValueFactory<Athelete, Integer>("bib"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Athelete, String >("fullName"));
-        genderColumn.setCellValueFactory(new PropertyValueFactory<Athelete,String>("gender"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Athelete, String>("fullName"));
+        genderColumn.setCellValueFactory(new PropertyValueFactory<Athelete, String>("gender"));
         clubColumn.setCellValueFactory(new PropertyValueFactory<Athelete, String>("club"));
         yearColumn.setCellValueFactory(new PropertyValueFactory<Athelete, Integer>("yearOfBirth"));
         run1Column.setCellValueFactory(new PropertyValueFactory<Athelete, Float>("run1"));
@@ -66,7 +71,7 @@ public class AtheleteViewController implements Initializable {
 
     }
 
-    public void allRacersButton(){
+    public void allRacersButton() {
         headingLabel.setText("All Racers");
         try {
 
@@ -77,6 +82,7 @@ public class AtheleteViewController implements Initializable {
         }
 
     }
+
     public void allFemalesButton() {
         headingLabel.setText("All Females");
 
@@ -88,15 +94,27 @@ public class AtheleteViewController implements Initializable {
         }
     }
 
-        public void allMalesButton(){
-            headingLabel.setText("All Males");
+    public void allMalesButton() {
+        headingLabel.setText("All Males");
 
-            try {
+        try {
 
-                tableView.getItems().addAll(DBUtility.getFemales());
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            tableView.getItems().addAll(DBUtility.getFemales());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void top10females() {
+        headingLabel.setText("Top 10 Females");
+
+        try {
+
+            tableView.getItems().addAll(DBUtility.getFemalestop10());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 }

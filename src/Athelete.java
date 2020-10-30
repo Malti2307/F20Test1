@@ -1,11 +1,15 @@
-public class Athelete
-{
-private int id;
-private int bib;
-private String fullName;
-private String gender, club;
-private int yearOfBirth;
-private float run1, run2;
+/*
+Name - Malti
+St Num -200434065
+ */
+
+public class Athelete {
+    private int id;
+    private int bib;
+    private String fullName;
+    private String gender, club;
+    private int yearOfBirth;
+    private float run1, run2;
 
     public Athelete(int id, int bib, String fullName, String gender, String club, int yearOfBirth, float run1, float run2) {
         setId(id);
@@ -25,8 +29,8 @@ private float run1, run2;
         setClub(club);
         setYearOfBirth(yearOfBirth);
         setRun1(run1);
-        setRun2(run2); }
-
+        setRun2(run2);
+    }
 
 
     public int getId() {
@@ -34,8 +38,8 @@ private float run1, run2;
     }
 
     public void setId(int id) {
-        if(id >0)
-        this.id = id;
+        if (id > 0)
+            this.id = id;
         else
             throw new IllegalArgumentException("Id needs to be greater than 0");
     }
@@ -60,14 +64,13 @@ private float run1, run2;
     }
 
 
-
     public String getGender() {
         return gender;
     }
 
     public void setGender(String gender) {
-        if(gender.equals("Male") || gender.equals("Female"))
-        this.gender = gender;
+        if (gender.equals("Male") || gender.equals("Female"))
+            this.gender = gender;
         else
             throw new IllegalArgumentException("Gender can be male or female");
     }
@@ -77,8 +80,8 @@ private float run1, run2;
     }
 
     public void setClub(String club) {
-        if(!club.isBlank())
-        this.club = club;
+        if (!club.isBlank())
+            this.club = club;
 
     }
 
@@ -87,8 +90,8 @@ private float run1, run2;
     }
 
     public void setYearOfBirth(int yearOfBirth) {
-        if(yearOfBirth == 2004 || yearOfBirth == 2005)
-        this.yearOfBirth = yearOfBirth;
+        if (yearOfBirth == 2004 || yearOfBirth == 2005)
+            this.yearOfBirth = yearOfBirth;
         else
             throw new IllegalArgumentException("Year of birth can either be 2004 or 2005");
     }
@@ -98,9 +101,9 @@ private float run1, run2;
     }
 
     public void setRun1(float run1) {
-        if(run1>=40)
-        this.run1 = run1;
-        else throw new  IllegalArgumentException("Run duration should be equal to or greater than 40");
+        if (run1 >= 40)
+            this.run1 = run1;
+        else throw new IllegalArgumentException("Run duration should be equal to or greater than 40");
     }
 
     public float getRun2() {
@@ -108,23 +111,25 @@ private float run1, run2;
     }
 
     public void setRun2(float run2) {
-        if(run2>=40)
+        if (run2 >= 40)
             this.run2 = run2;
-        else throw new  IllegalArgumentException("Run duration should be equal to or greater than 40");
+        else throw new IllegalArgumentException("Run duration should be equal to or greater than 40");
     }
 
-    public float getFastestRun(){
-        if(run1>run2)
+    public float getFastestRun() {
+        if (run1 > run2)
             return run1;
 
         else return run2;
     }
-    public double getCombinedTime(){
-        return run1+run2;
-}
-        public String getCombinedTimeString(){
-        return(String.format("%.2f",run1+run2));
-        }
+
+    public double getCombinedTime() {
+        return run1 + run2;
+    }
+
+    public String getCombinedTimeString() {
+        return (String.format("%.2f", run1 + run2));
+    }
 
 
 }
